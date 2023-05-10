@@ -1,24 +1,44 @@
 
 #!/usr/bin/env python3
 
-"""to do"""
+"""
+		to do
+	1. create a memory view
+	2. create a reset
+	3. create a history
+	4. 
+"""
+
+class Memory(object):
+	
+	def __init__(self):
+		self.memory = [0]*3000;
+		self.pointer = 0
+
+	def viewstate(self):
+    	print(self.memory)
 
 
-
-
-
-
-def viewstate (array):
-    print(array)
 def menu ():
     Intro_prompt = """
-    Th1s i$ hte brainFook program
+    Th1s i$ hte brainpoke program
     implement@tion of the brainf**k in python
-    ______
+
+	=========================================
+	| > | move the pntr to rt mem add       |
+	| < | move the pntr to lft mem add      |
+	| + | inc cur mem add                   |
+	| - | dec cur mem add                   |
+	| . | out cur mem add                   |
+	| , | in cur mem add                    |
+	| [ | move to ], if cur mem add holds 0 |
+	| ] | move to [                         |   
+	=========================================
     """
     print(Intro_prompt)
 
-
+def handle_commands(op: chr):
+	
 
 def operations_on_array (operation, array: list, pointer: int, loop_pointer: list):
     if operation == ">":
@@ -58,16 +78,9 @@ def operations_on_array (operation, array: list, pointer: int, loop_pointer: lis
     return array, pointer, loop_pointer
 
 
-
-
 def main ():
     menu ()
-    # the master memory
-    array = [0] * 30000
-    pointer = 0
-    loop_pointer = [-1, -1]
-
-    operation = 0 
+    
     intro2 = "\ton ? prompt enter the command \n\tto exit enter $$\n"
     print(intro2)
     while operation != "$$":
