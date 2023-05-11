@@ -1,5 +1,6 @@
 import curses
-import brainpoke 
+from brainpoke import Memory
+
 
 def cmd_view(screen):
 	header = """
@@ -40,38 +41,49 @@ def handle_commands(op: chr):
 
 
 def interface():
-	memory = brainpoke.Memory()
-	mode = ord('c')
+	memory = Memory()
+	mode = 'c'
 	screen = curses.initscr()
 	curses.echo()
 	reg = True
 
 	while True:
 		screen.clear()
-		if mode == ord('c'):
+		if mode == 'c':
 			cmd_view(screen)
-		elif mode == ord('m'):
 			memory_map(screen)
 		
-		screen.addstr(20, 1, '	? ' )	
-		user_input = screen.getch()
-		screen.getch()
-		if user_input == ord('c'):
-			if mode == ord('c'):
+		screen.addstr(17, 1, '	? ' )	
+		screen.addstr(19, 1, "	________________________________________")
+		user_input = screen.getstr(17, 10, 3).decode('utf-8')
+		
+		operator, operand = 'a', '0'
+		if ' ' in user_input:
+			try:
+				operator, operand = user_input.split(' ')
+			except Error:
+				return status
+				screen.addstr(50, 1, "invalid string input")
+		else:
+			operator = user_input
+		
+		if operator == 'c':
+			if mode == 'c':
 				screen.addstr(50, 1, "already cmd mode")
 			else:
-				mode = ord('ord')
+				mode = 'c'
 		 
-		elif user_input == ord('m'):
-			if mode == ord('m'):
+		elif operator == 'm':
+			if mode == 'm':
 				screen.addstr(50, 1, "already memory map mode")
 			else:
-				mode = ord('m')
-		elif user_input == ord('q'):
+				mode = 'm'
+		elif operator == 'q':
 			curses.endwin()
-			return 0
+			return 
 		else:
-			memory.handle_operations(user_input)
-	
+			status = memory.handle_operations(operator, operand)
+			# screen.addstr(50, 1, str(status.items()))
+			# screen.addstr(51, 1, str(status.items()))	
 		screen.refresh()
 	curses.endwin()
