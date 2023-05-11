@@ -19,7 +19,10 @@ def cmd_view(screen):
 	"""
 	screen.addstr(1, 1, header)
 
-def memory_map():
+def memory_map(screen):
+	# create segment wise rendering of the memory map 
+	# with pages, p and n
+	# screen.addstr(Memory.memory)
 	pass
 
 """
@@ -40,7 +43,8 @@ def interface():
 	memory = brainpoke.Memory()
 	mode = ord('c')
 	screen = curses.initscr()
-	curses.noecho()
+	curses.echo()
+	reg = True
 
 	while True:
 		screen.clear()
@@ -50,7 +54,8 @@ def interface():
 			memory_map(screen)
 		
 		screen.addstr(20, 1, '	? ' )	
-		user_input = screen.getstr()
+		user_input = screen.getch()
+		screen.getch()
 		if user_input == ord('c'):
 			if mode == ord('c'):
 				screen.addstr(50, 1, "already cmd mode")
@@ -69,5 +74,4 @@ def interface():
 			memory.handle_operations(user_input)
 	
 		screen.refresh()
-	curses.nocbrea()
 	curses.endwin()
