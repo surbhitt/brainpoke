@@ -8,12 +8,14 @@ from interface import interface
 	2. create a reset
 	3. create a history
 	4. 
+
+	render the corrent pointer add
+	the value inside the mem
 """
 
 
 def main ():
 	interface()
-	
 
 if __name__ == '__main__':
 	main()

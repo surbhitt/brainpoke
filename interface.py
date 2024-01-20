@@ -26,15 +26,6 @@ def memory_map(screen):
 	# screen.addstr(Memory.memory)
 	pass
 
-"""
-def handle_commands(op: chr):
-	intro2 = '\ton ? prompt enter the command \n\tto exit enter $$\n'
-	print(intro2)
-	while operation != "$$":
-		operation = input("\n\t? ")
-	
-		array, pointer, loop_pointer = operations_on_array(operation, array, pointer, loop_pointer)
-"""
 # begin_x = 20 ; begin_y = 7
 # height = 5 ; width = 40
 # win = curses.newwin(height, width, begin_y, begin_x)
@@ -52,10 +43,13 @@ def interface():
 		if mode == 'c':
 			cmd_view(screen)
 			memory_map(screen)
-		
-		screen.addstr(17, 1, '	? ' )	
-		screen.addstr(19, 1, "	________________________________________")
-		user_input = screen.getstr(17, 10, 3).decode('utf-8')
+	
+		screen.addstr(17, 1, "	________________________________________input___")
+		screen.addstr(19, 1, '	? ' )	
+		# screen.addstr(21, 1, "	________________________________________output__")
+		# someway to render output
+
+		user_input = screen.getstr(19, 10, 3).decode('utf-8')
 		
 		operator, operand = 'a', '0'
 		if ' ' in user_input:
