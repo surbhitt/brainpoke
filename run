@@ -1,1 +1,1 @@
-python compiler.py hello_world.bfk
+python3 compiler.py bfk_eg/hello_world.bfk

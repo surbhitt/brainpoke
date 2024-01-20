@@ -29,7 +29,7 @@ class Lexer:
     # or if prev operation was input
     # a valid literal
     def is_valid_token(self, op):
-        return Op_kind.is_valid_op(op) # && should check operand ??
+        return Op_kind.is_valid_op(op) or (self.source[self.pos-1] == Op_kind.INP)# && should check operand ??
     
     def __init__(self, source):
         self.source = source
