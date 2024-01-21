@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 import sys
-from ..memory import Memory
+from common.memory import Memory
 from lexer import Lexer
 from parser import Parser 
 

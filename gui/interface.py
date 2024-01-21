@@ -1,5 +1,5 @@
 import curses
-from brainpoke import Memory
+from common.memory import Memory
 
 
 def cmd_view(screen):

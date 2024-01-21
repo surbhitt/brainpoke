@@ -1,5 +1,5 @@
 from lexer import Lexer, Op_kind
-from memory import Memory
+from common.memory import Memory
 
 class Parser:
     op_jio = {Op_kind.JMP_IF_Z, Op_kind.JMP_IF_NZ, Op_kind.INP} # op_ JMP I/0
