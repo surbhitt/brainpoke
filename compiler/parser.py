@@ -1,4 +1,4 @@
-from lexer import Lexer, Op_kind
+from compiler.lexer import Lexer, Op_kind
 from common.memory import Memory
 
 class Parser:
@@ -56,7 +56,7 @@ class Parser:
             elif opcode == Op_kind.DEC_PTR:
                 mem.ptr -= operand
             elif opcode == Op_kind.INP:
-                mem.memory[mem.ptr] = operand
+                mem.memory[mem.ptr] = ord(operand)
             elif opcode == Op_kind.OUT:
                 while operand:
                     print(chr(mem.memory[mem.ptr]), end="")

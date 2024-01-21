@@ -1,18 +1,19 @@
 #!/usr/bin/env python3
 
-import sys
+from sys import argv
 from common.memory import Memory
-from lexer import Lexer
-from parser import Parser 
+from compiler.lexer import Lexer
+from compiler.parser import Parser 
 
-def main():
-    with open(sys.argv[1], 'r') as source_file:
-        mem = Memory()
+def compiler(source_file_path: str):
+    with open(source_file_path, 'r') as source_file:
         l = Lexer(source_file.read())
         ir = Parser(l)
+        mem = Memory()
         ir.exec_ir_on_mem(mem)
     
 
 if __name__ == "__main__":
-    main()
+    if len(argv) > 1:
+        compiler(argv[1])
 

@@ -1,7 +1,7 @@
-
 #!/usr/bin/env python3
-from interface import interface
-
+from sys import argv
+from gui.interface import interface
+from compiler.compiler import compiler
 """
 		to do
 	1. create a memory view
@@ -15,7 +15,11 @@ from interface import interface
 
 
 def main ():
-	interface()
+    if len(argv) > 1:
+        compiler(argv[1])
+    else:
+        print("[INFO] Implementation incomplete")
+	    # interface()
 
 if __name__ == '__main__':
 	main()
