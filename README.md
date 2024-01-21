@@ -9,14 +9,14 @@ A tool for working with brainfuck.<br>
 
 ```bash
 ## one time run
-bash setup
+$ bash setup
 
 ## activate virtual env 
-source env/bin/activate
+$ source env/bin/activate
 
 ## run with hello_world.bfk example
-bash run
+$ bash run
 ## -------------- or ----------------
-python main.py bfk_eg/hello_world.bfk
+$ python main.py bfk_eg/hello_world.bfk
 ```
 
