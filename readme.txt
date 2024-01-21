@@ -7,6 +7,15 @@ Brainpoke𓇢𓆸
     
 Run
 ---------------------------------------------------
-    $ ./run
-    or
-    $ python compiler.py hello_world.bfk
+    ## one time run
+    $ bash setup
+    
+    ## activate virtual env 
+    $ source env/bin/activate
+    
+    ## run with hello_world.bfk example
+    $ bash run
+    ## -------------- or ----------------
+    $ python main.py bfk_eg/hello_world.bfk
+
+
