@@ -7,7 +7,7 @@ A tool for working with brainfuck.<br>
     
 ## Run
 
-```console
+```bash
 ## one time run
 bash setup
 
