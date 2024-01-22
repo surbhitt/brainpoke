@@ -19,4 +19,6 @@ $ bash run
 ## -------------- or ----------------
 $ python main.py bfk_eg/hello_world.bfk
 ```
+## Screencast
 
+![showcase](assets/bfk.gif)
